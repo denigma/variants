@@ -1,0 +1,32 @@
+@(items: List[org.openrdf.model.Statement])
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+  <title>Variants</title>
+</head>
+<body>
+    <h2>Hi, %username%</h2>
+    <p>bellow you can see an output from parsed turtle file (files/viriants/ttl)</p>
+    <p>Inside app/controllers/Application.index method the parsing and output is done. And inside app/parser you can look at parser source code</p>
+
+
+    <table border="1">
+        <tr>
+            <th>Subject</th>
+            <th>Predicate</th>
+            <th>Object</th>
+        </tr>
+        @for(item <- items) {
+            <tr>
+                <td>@item.getSubject.toString</td>
+                <td>@item.getPredicate.toString</td>
+                <td>@item.getObject.toString</td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>
