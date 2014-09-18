@@ -18,7 +18,9 @@ object Application extends Controller {
   def index = Action {
 
     val parser = new InMemoryParser()
-    val fileToParse = play.api.Play.getFile("./files/variants.ttl")
+    //val fileToParse = play.api.Play.getFile("./files/variants.ttl")
+    val fileToParse = play.api.Play.getFile("./files/Mouse_ontology.ttl")
+
     parser.parseFile(fileToParse)
 
 
