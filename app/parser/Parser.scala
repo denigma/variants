@@ -4,6 +4,7 @@ package parser
 import org.openrdf.repository.Repository
 import org.openrdf.repository.Repository
 import org.openrdf.repository.sail.{SailRepositoryConnection, SailRepository}
+import org.openrdf.rio.ParserConfig
 import org.openrdf.sail.memory.MemoryStore
 import org.{openrdf=>se}
 import org.openrdf
@@ -27,7 +28,7 @@ object Database {
 
 }
 
-class InMemoryParser extends SesameFileParser
+class InMemoryParser(config:ParserConfig) extends SesameFileParser(config)
 {
   override def makeListener(filename: String, con: WriteConnection, context: IRI, lg: LogLike): SesameFileListener = new MemoryListener(filename,context,lg)
 
